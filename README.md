@@ -63,12 +63,13 @@ Pour la Phase 1, l’objectif est :
 - Base de données : MongoDB (mongoose).
 
 
-## 6. Installation (backend – Phase 1)
+## 6. backend – Phase 1
 
-### 6.1 Prérequis
+### 6.1 Installation Prérequis
 
 - Node.js installé
-- MongoDB en local (ou une URL MongoDB Atlas)
-- Git
+- MongoDB en local 
+- Git avec .gitignore
+-Express.js server + MongoDB connection
 
 
