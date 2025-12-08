@@ -1,0 +1,5 @@
+{
+  "name": "BlogTester Frontend",
+  "description": "A React frontend designed to test an Express backend with Auth, Article, and Comment routes.",
+  "requestFramePermissions": []
+}

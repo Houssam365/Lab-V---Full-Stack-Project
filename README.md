@@ -49,6 +49,7 @@ Le projet sera considéré comme réussi si :
 
 - **Backend** : Node.js + Express.
 - **Base de données** : MongoDB (mongoose).
+- **Frontend** : React + Tailwind CSS.
 
 ---
 
@@ -87,10 +88,28 @@ Le projet sera considéré comme réussi si :
 - Middleware de gestion des erreurs
 - Code testé via Postman (création utilisateur, login, test JWT)
 
-### Conseils d’intégration
 
-- Respecter la structure du projet (`/routes`, `/controllers`, `/models`, etc.)
-- Documenter l’organisation des fichiers dans le README
-- Indiquer comment lancer/arrêter le backend, avec ou sans données de test
+---
 
+## 8. Phase 3 : Frontend & Intégration
 
+### Fonctionnalités réalisées
+
+- Mise en place de l'environnement frontend avec React et Tailwind CSS.
+- Configuration du routing de l'application (React Router) pour la navigation entre les pages (Accueil, Login, Register, Détail Article, Éditeur).
+- Implémentation du système d'authentification complet :
+  - Création du contexte `AuthContext` pour la gestion globale de l'état utilisateur.
+  - Formulaires de connexion et d'inscription connectés à l'API.
+  - Gestion du stockage sécurisé et de la persistance du JWT (localStorage).
+  - Protection des routes privées (ex: création/édition d'articles) via un composant `ProtectedRoute`.
+- Développement de la couche service (`api.ts`) pour centraliser les appels API et injecter automatiquement le token d'autorisation dans les headers.
+- Création des interfaces utilisateur pour le CRUD des articles :
+  - Affichage de la liste des articles sur la page d'accueil.
+  - Page de lecture détaillée d'un article.
+  - Interface d'écriture et d'édition d'articles.
+  - Suppression d'articles pour les propriétaires.
+- Intégration du système de commentaires :
+  - Affichage des commentaires sous les articles.
+  - Formulaire d'ajout de commentaire (réservé aux utilisateurs connectés).
+  - Suppression de commentaires.
+- Gestion UX : Feedback visuel lors des chargements (loading states) et gestion des erreurs API.
