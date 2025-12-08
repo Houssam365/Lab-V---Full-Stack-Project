@@ -68,4 +68,10 @@ curl -s -X DELETE "$BASE_URL/articles/$ARTICLE_ID" \
 echo ""
 echo ""
 
+echo "--- 9. Déconnexion ---"
+curl -s -X POST "$BASE_URL/auth/logout"
+echo ""
+echo ""
+
 echo "--- Test terminé ---"
+
