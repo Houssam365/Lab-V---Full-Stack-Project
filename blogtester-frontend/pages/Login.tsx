@@ -43,8 +43,8 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10">
-      <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+    <div className="max-w-md mx-auto mt-4 md:mt-10">
+      <div className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-200">
         <h2 className="text-2xl font-bold text-center text-slate-900 mb-6">Welcome Back</h2>
 
         {error && (

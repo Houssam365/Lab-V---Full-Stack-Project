@@ -87,10 +87,11 @@ const ArticleDetail: React.FC = () => {
   return (
     <div className="max-w-3xl mx-auto">
       {/* Article Content */}
+      {/* Article Content */}
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-8">
-        <div className="p-8">
-          <h1 className="text-3xl font-bold text-slate-900 mb-4">{article.title}</h1>
-          <div className="flex items-center text-sm text-slate-500 mb-8 pb-6 border-b border-slate-100">
+        <div className="p-4 md:p-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">{article.title}</h1>
+          <div className="flex flex-wrap items-center text-sm text-slate-500 mb-8 pb-6 border-b border-slate-100">
             <Calendar className="w-4 h-4 mr-1" />
             <span className="mr-4">{new Date(article.createdAt).toLocaleDateString()}</span>
             <span className="mr-4 text-slate-400">|</span>
@@ -131,7 +132,7 @@ const ArticleDetail: React.FC = () => {
       </div>
 
       {/* Comments Section */}
-      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 md:p-8">
         <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
           <MessageCircle className="w-5 h-5 mr-2" /> Comments ({comments.length})
         </h3>

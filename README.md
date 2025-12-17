@@ -113,3 +113,30 @@ Le projet sera considéré comme réussi si :
   - Formulaire d'ajout de commentaire (réservé aux utilisateurs connectés).
   - Suppression de commentaires.
 - Gestion UX : Feedback visuel lors des chargements (loading states) et gestion des erreurs API.
+
+---
+
+## 9. Phase 4 : Améliorations & UX
+
+### Fonctionnalités réalisées
+
+- **Support Markdown Complet** :
+  - Intégration de `react-markdown` et `remark-gfm` pour le rendu riche du contenu.
+  - Support des titres, listes, code blocks, tables, gras, italique, etc. dans les articles et commentaires.
+  - *Note* : Les titres des articles dans les listes restent en texte brut pour préserver la mise en page.
+- **Page de Profil Utilisateur** :
+  - Nouvelle route `/profile` protégée.
+  - Affichage centralisé de tous les articles rédigés par l'utilisateur connecté.
+  - Barre latérale listant l'historique des commentaires de l'utilisateur avec liens vers les articles concernés.
+  - Mise à jour du backend pour supporter le filtrage des articles par auteur et la récupération des commentaires par auteur.
+- **Design Responsive (Mobile First)** :
+  - Adaptation complète de l'interface pour les écrans mobiles, tablettes et bureaux.
+  - **Navbar** : Menu "Hamburger" sur mobile, navigation complète sur desktop.
+  - **Grilles** : Passage automatique de 1 à 3 colonnes pour les articles selon la taille de l'écran.
+  - **Ajustements** : Marges et espacements optimisés pour le tactile sur mobile.
+- **Données de Test (Seeding)** :
+  - Script `backend/seed.js` pour peupler la base de données avec des utilisateurs, articles et commentaires réalistes utilisant la syntaxe Markdown.
+- **Améliorations Diverses** :
+  - Affichage de l'auteur des articles et commentaires.
+  - Filtrage des articles par auteur via l'API.
+  - Lien vers le profil ajouté dans la barre de navigation.
