@@ -21,17 +21,54 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const storedToken = localStorage.getItem('token');
     const storedUser = localStorage.getItem('user');
 
+    let isTokenValid = false;
+
     if (storedToken) {
-      setToken(storedToken);
+      // Basic JWT expiration check
+      try {
+        const payloadBase64 = storedToken.split('.')[1];
+        if (payloadBase64) {
+          const payload = JSON.parse(atob(payloadBase64));
+          const now = Math.floor(Date.now() / 1000);
+
+          if (payload.exp && payload.exp < now) {
+            // Token expired
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+          } else {
+            setToken(storedToken);
+            isTokenValid = true;
+          }
+        } else {
+          // If no payload part, assume valid or let backend handle it
+          setToken(storedToken);
+          isTokenValid = true;
+        }
+      } catch (e) {
+        // Failed to parse, assume valid (let backend handle 401)
+        setToken(storedToken);
+        isTokenValid = true;
+      }
     }
-    if (storedUser) {
+
+    if (storedUser && isTokenValid) {
       try {
         setUser(JSON.parse(storedUser));
       } catch (e) {
         console.error("Failed to parse user from local storage");
       }
     }
+
     setIsLoading(false);
+
+    const handleAuthError = () => {
+      logout();
+    };
+    window.addEventListener('auth:unauthorized', handleAuthError);
+
+    return () => {
+      window.removeEventListener('auth:unauthorized', handleAuthError);
+    };
   }, []);
 
   const login = (newToken: string, userData: User) => {

@@ -17,6 +17,9 @@ const handleResponse = async (response: Response) => {
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
+    if (response.status === 401 || response.status === 403) {
+      window.dispatchEvent(new CustomEvent('auth:unauthorized'));
+    }
     throw new Error(data.message || data.error || 'Something went wrong');
   }
   return data;
