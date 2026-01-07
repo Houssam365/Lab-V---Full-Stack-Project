@@ -17,7 +17,7 @@ app.use('/api/comments', require('./routes/comments'));
 // Connexion à MongoDB avec retry
 const connectWithRetry = () => {
   console.log('Tentative de connexion à MongoDB...');
-  mongoose.connect(process.env.MONGO_URI)
+  mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI)
     .then(() => {
       console.log('Connexion à MongoDB réussie !');
       // Démarrage du serveur si pas déjà démarré
